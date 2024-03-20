@@ -58,13 +58,9 @@ puppeteer.default
     await page.setExtraHTTPHeaders(headers);
     await page.setContent("html", { waitUntil: "domcontentloaded" });
 
-    await page.goto(
-      // "https://api.scraperapi.com/?api_key=05d9c89b772494a6192796513d14316b&url=https%3A%2F%2Fwww.etsy.com%2F&country_code=eu",
-      "https://www.etsy.com",
-      {
-        waitUntil: ["domcontentloaded", "networkidle2"],
-      }
-    );
+    await page.goto("https://www.etsy.com", {
+      waitUntil: ["domcontentloaded", "networkidle2"],
+    });
 
     await isCaptcha(page);
 
