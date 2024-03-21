@@ -54,7 +54,7 @@ puppeteer.default
   })
   .then(async (browser: Browser) => {
     const page: Page = await browser.newPage();
-    await page.setUserAgent(userAgent.random().toString());
+    // await page.setUserAgent(userAgent.random().toString());
     await page.setExtraHTTPHeaders(headers);
     await page.setContent("html", { waitUntil: "domcontentloaded" });
 

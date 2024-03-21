@@ -35,7 +35,7 @@ const start = async () => {
     })
     .then(async (browser) => {
       const page = await browser.newPage();
-      await page.setUserAgent(userAgent.random().toString());
+      // await page.setUserAgent(userAgent.random().toString());
       await page.setExtraHTTPHeaders({
         "'X-Requested-With'": "XMLHttpRequest",
         "Upgrade-Insecure-Requests": "1",
@@ -48,9 +48,8 @@ const start = async () => {
       });
 
       await isCaptcha(page);
+      await delay(10000);
       await blockVideo(page);
-
-      await delay(4000);
 
       await page.waitForSelector(".wt-card__action-link");
       await page.click(".wt-card__action-link");
